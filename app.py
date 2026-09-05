@@ -11,6 +11,20 @@ from pathlib import Path
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+# Ensure librosa/audioread can decode mp3 reference audio via ffmpeg.
+# imageio-ffmpeg ships a static ffmpeg binary (named ffmpeg-win-x86_64-*.exe)
+# inside the venv. audioread invokes the plain `ffmpeg` command, so expose a
+# copy named ffmpeg.exe and prepend its directory to PATH.
+import imageio_ffmpeg
+import shutil
+_ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
+_ffmpeg_dir = os.path.dirname(_ffmpeg_exe)
+_ffmpeg_cmd = os.path.join(_ffmpeg_dir, "ffmpeg.exe")
+if not os.path.exists(_ffmpeg_cmd):
+    shutil.copyfile(_ffmpeg_exe, _ffmpeg_cmd)
+if _ffmpeg_dir not in os.environ.get("PATH", ""):
+    os.environ["PATH"] = _ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
+
 import voxcpm
 from voxcpm.model.utils import resolve_runtime_device
 
@@ -241,10 +255,15 @@ class VoxCPMDemo:
         if self.voxcpm_model is not None:
             return self.voxcpm_model
         logger.info(f"Loading model: {self._model_id}")
+        _zipenhancer_path = os.environ.get(
+            "VOXCPM_ZIPENHANCER_PATH",
+            r"E:\huggingface_cache\modelscope\models\iic\speech_zipenhancer_ans_multiloss_16k_base",
+        )
         self.voxcpm_model = voxcpm.VoxCPM.from_pretrained(
             self._model_id,
             optimize=self.optimize,
             device=self.device,
+            zipenhancer_model_id=_zipenhancer_path,
         )
         logger.info("Model loaded successfully.")
         return self.voxcpm_model
