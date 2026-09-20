@@ -32,6 +32,10 @@
   <a href="https://discord.gg/KZUx7tVNwz" style="display:inline-block;vertical-align:middle;">
     <img src="./assets/discord-logo.png" width="16" height="16" style="vertical-align:middle;"> Discord
   </a>
+  &nbsp;|&nbsp;
+  <a href="https://modelbest.feishu.cn/wiki/UtWxwcERfiRIpIkBOjuc3h9tn1D?fromScene=spaceOverview" style="display:inline-block;vertical-align:middle;">
+    📚 MiniCPM Wiki
+  </a>
 </p>
 
 VoxCPM is a **tokenizer-free** Text-to-Speech system that directly generates continuous speech representations via an end-to-end **diffusion autoregressive architecture**, bypassing discrete tokenization to achieve highly natural and expressive synthesis.
@@ -636,6 +640,7 @@ Full documentation: **[voxcpm.readthedocs.io](https://voxcpm.readthedocs.io/en/l
 | **[ComfyUI_RH_VoxCPM](https://github.com/HM-RunningHub/ComfyUI_RH_VoxCPM)** | Feature-complete ComfyUI workflow for VoxCPM 2 with multi-speaker generation, LoRA, and auto-ASR |
 | **[ComfyUI-VoxCPMTTS](https://github.com/1038lab/ComfyUI-VoxCPMTTS)**       | ComfyUI TTS extension                                                                            |
 | **[TTS WebUI](https://github.com/rsxdalv/tts_webui_extension.vox_cpm)**     | Browser-based TTS extension                                                                      |
+| **[Video Dubbing Translator](https://github.com/kadirb4rut/video-dubbing-translator)** | Local-first video dubbing: vocal separation → WhisperX ASR → translation → VoxCPM2 voice cloning → lip-sync |
 
 
 > See the full [Ecosystem](https://voxcpm.readthedocs.io/en/latest/) in the docs. Community projects are not officially maintained by OpenBMB. Built something cool? [Open an issue or PR](https://github.com/OpenBMB/VoxCPM/issues) to add it!
