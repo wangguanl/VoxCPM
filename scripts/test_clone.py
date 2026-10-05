@@ -3,7 +3,7 @@ import sys
 from gradio_client import Client, handle_file
 
 URL = "http://localhost:8808/"
-REF_MP3 = r"E:\Pro2\VoxCPM\outputs\test_ref.mp3"  # 440Hz sine wave, valid mp3
+REF_MP3 = r"E:\AI\local-voice\VoxCPM\outputs\test_ref.mp3"  # 440Hz sine wave, valid mp3
 
 client = Client(URL, verbose=False)
 result = client.predict(
@@ -22,6 +22,6 @@ result = client.predict(
 print("Result:", result)
 audio_path, seed = result[0], result[1]
 import shutil, os
-out = r"E:\Pro2\VoxCPM\outputs\clone_test.wav"
+out = r"E:\AI\local-voice\VoxCPM\outputs\clone_test.wav"
 shutil.copyfile(audio_path, out)
 print(f"SUCCESS: saved {out} ({os.path.getsize(out)} bytes), seed={seed}")

@@ -11,7 +11,7 @@
 $env:PATH = [Environment]::GetEnvironmentVariable("PATH", "User") + ";" + $env:PATH
 
 # 1. 路径配置 -------------------------------------------------
-$ProjectRoot   = "E:\Pro2\VoxCPM"
+$ProjectRoot   = "E:\AI\local-voice\VoxCPM"
 $PythonExe     = Join-Path $ProjectRoot ".venv\Scripts\python.exe"
 $AppScript     = Join-Path $ProjectRoot "app.py"
 $ModelRoot     = "E:\huggingface_cache\modelscope"

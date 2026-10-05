@@ -11,3 +11,9 @@ models/
 data/
 lora/
 output/
+
+# --- local runtime: models / caches / artifacts (not versioned) ---
+outputs/
+examples/test_output.wav
+scripts/test_core_err.log
+scripts/test_core_out.log

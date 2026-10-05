@@ -20,7 +20,7 @@ wav = model.generate(
     inference_timesteps=10,
     seed=42,
 )
-out = r"E:\Pro2\VoxCPM\examples\test_output.wav"
+out = r"E:\AI\local-voice\VoxCPM\examples\test_output.wav"
 sf.write(out, wav, model.tts_model.sample_rate)
 print(f"Saved: {out}, sample_rate={model.tts_model.sample_rate}, duration={len(wav)/model.tts_model.sample_rate:.2f}s")
 print("SUCCESS")

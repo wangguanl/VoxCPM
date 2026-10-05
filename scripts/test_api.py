@@ -6,7 +6,7 @@ import soundfile as sf
 from gradio_client import Client, handle_file
 
 URL = "http://localhost:8808/"
-OUT = r"E:\Pro2\VoxCPM\outputs\api_test.wav"
+OUT = r"E:\AI\local-voice\VoxCPM\outputs\api_test.wav"
 
 client = Client(URL, verbose=False)
 
